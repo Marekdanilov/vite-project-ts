@@ -40,3 +40,7 @@ export interface IGood {
     description: string;
     price: string;
 }
+
+export interface GoodsViewProps {
+    goods: IGood[]
+}

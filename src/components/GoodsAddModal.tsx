@@ -38,7 +38,13 @@ const ModalWindow = ({ goods, setGoods}: ModalWindowProps) => {
                 <p>Цена</p>
                 <Input size="medium" color="primary" value={price} onChange={event => setPrice(event.target.value)}/>
             </div>
-            <Button size="medium" color="primary" title="Добавить" onClick={AddGood}/>
+            <Button size="medium" color="primary" title="Добавить" onClick = {() => {
+                AddGood();
+                setTitle("");
+                setDescription("")
+                setPrice("");
+                closeModal();
+            }}/>
         </div>
     );
 
