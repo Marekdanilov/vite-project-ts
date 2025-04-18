@@ -3,6 +3,7 @@ import ReactModal from "react-modal";
 import Button from "./Button";
 import Input from "./Input";
 import { ModalWindowProps } from "../models/ProjectModels";
+import axios from "axios";
 
 const ModalWindow = ({ goods, setGoods}: ModalWindowProps) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -39,6 +40,12 @@ const ModalWindow = ({ goods, setGoods}: ModalWindowProps) => {
                 <Input size="medium" color="primary" value={price} onChange={event => setPrice(event.target.value)}/>
             </div>
             <Button size="medium" color="primary" title="Добавить" onClick = {() => {
+                axios.post("http://localhost:5000/api/data", 
+                    {title: title, description: description, price: price}).
+                    catch(error => {
+                        console.log(error)
+                    })
+
                 AddGood();
                 setTitle("");
                 setDescription("")
