@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Button from "./Button";
-
+import axios from "axios";
 
 function ServerData() {
   const [data, setData] = useState<{ title: string, description: string, price: string }[]>([]);
@@ -8,17 +8,14 @@ function ServerData() {
   const [dataIsCurrent, setDataIsCurrent] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/api/data");
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
+    axios.get("http://localhost:5000/api/data")
+      .then(response => {
+        setData(response.data)
+      })
+      .catch(error => {
+        console.log(error);
+      });
+      
     setDataIsCurrent(true);
   }, [dataIsCurrent]);
 

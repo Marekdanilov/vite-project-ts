@@ -1,10 +1,9 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import About from './pages/About.tsx'
-import Blog from './pages/Blog.tsx'
+import Auth from './pages/Auth.tsx'
+import Help from './pages/Help.tsx'
 import Home from './pages/Home.tsx'
 import Layout from './components/Layout.tsx'
-
 
 function App() {
   return (
@@ -13,8 +12,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="blog" element={<Blog />} />
+            <Route path="auth" element={<Auth />} />
+            <Route path="help" element={<Help />} />
           </Route>
         </Routes>
       </BrowserRouter>
