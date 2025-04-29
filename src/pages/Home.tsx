@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet"
 
 function Home() {
     const [goods, setGoods] = useState([]);
-
+    
     return (
         <>
             <Helmet>
@@ -89,9 +89,6 @@ function Home() {
             </div>
         </>
     )
-
-
-    
 };
 
 export default Home;
